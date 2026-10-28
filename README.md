@@ -19,10 +19,15 @@ Tested on Ubuntu 24.04 with labelle 1.4.4.
 ## Install
 
 ```bash
-git clone <this repo> dymo-lm280
-cd dymo-lm280
+git clone git@github.com:disappointedButNotSuprised/dymo-lm280-ubuntu.git
+cd dymo-lm280-ubuntu
 ./install.sh
 ```
+
+The repo is private, so cloning needs a GitHub account with access to it and
+an SSH key added to that account. Without a key, use the "Download ZIP" button
+on GitHub instead and run `./install.sh` from the unpacked folder (if the
+scripts lost their executable bit, run `bash install.sh`).
 
 The script asks for your sudo password (for apt and the udev rule). After it
 finishes:
