@@ -1,0 +1,4 @@
+# DYMO LabelManager 280 - let regular (non-root) users talk to the printer over USB.
+# Both product IDs are LM280 variants known to labelle.
+ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="0922", ATTRS{idProduct}=="1005", MODE="0666"
+ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="0922", ATTRS{idProduct}=="1006", MODE="0666"

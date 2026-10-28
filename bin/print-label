@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# print-label - quick wrapper around labelle for the DYMO LabelManager 280.
+#
+#   print-label "Some text"            print one label
+#   print-label Line1 Line2            two-line label (each argument is a line)
+#   print-label --qr https://x.y "Hi"  any labelle option works
+#   print-label                        ask for the text interactively
+set -euo pipefail
+
+if ! command -v labelle >/dev/null 2>&1; then
+    echo "print-label: labelle not found - run install.sh first (or open a new terminal)" >&2
+    exit 127
+fi
+
+if [ $# -gt 0 ]; then
+    exec labelle "$@"
+fi
+
+read -r -p "Label: " text
+[ -n "$text" ] || { echo "print-label: empty label, nothing printed" >&2; exit 1; }
+exec labelle "$text"
